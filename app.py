@@ -77,8 +77,8 @@ def run_app():
 def run_popup_loop():
     while True:
         show_popup()
-        #time.sleep(7200)
-        time.sleep(10)
+        time.sleep(7200)
+        #time.sleep(10)
 
 if __name__ == "__main__":
     # Clear the log file at the start
