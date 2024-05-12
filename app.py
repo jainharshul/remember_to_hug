@@ -66,8 +66,11 @@ def show_popup():
 @app.route('/')
 def index():
     """ Serve the log file as a web page """
-    with open(log_file, "r") as file:
-        log_content = file.readlines()
+    try:
+        with open(log_file, "r") as file:
+            log_content = file.readlines()
+    except FileNotFoundError:
+        log_content = ["Log file not found."]
     return render_template('index.html', log_content=log_content)
 
 def run_app():
@@ -77,12 +80,15 @@ def run_app():
 def run_popup_loop():
     while True:
         show_popup()
-        time.sleep(7200)
-        #time.sleep(10)
+        time.sleep(7200)  # Show popup every 2 hours
 
 if __name__ == "__main__":
-    # Clear the log file at the start
-    open(log_file, 'w').close()
+    # Ensure the log directory exists
+    os.makedirs(os.path.dirname(log_file), exist_ok=True)
+    
+    # Ensure the log file exists without clearing it if it does
+    if not os.path.isfile(log_file):
+        open(log_file, 'w').close()
 
     # Start the Flask app in a separate thread
     threading.Thread(target=run_app).start()
