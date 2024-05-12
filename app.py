@@ -14,7 +14,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Log file to store the display and close times
-log_file = "popup_log.txt"
+log_file = "extra/popup_log.txt"
 
 def write_to_log(message):
     """ Helper function to write messages to the log file """
@@ -23,7 +23,7 @@ def write_to_log(message):
 
 def show_popup():
     pygame.mixer.init()
-    pygame.mixer.music.load('sound.mp3')
+    pygame.mixer.music.load('extra/sound.mp3')
     pygame.mixer.music.play(-1)
 
     images = ['sleep1.jpeg', 'sleep2.jpeg', 'sleep3.jpeg', 'sleep4.jpeg', 'sleep5.jpeg', 'sleep6.jpeg']
