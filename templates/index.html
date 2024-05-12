@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popup Log</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .log {
+            margin-top: 20px;
+        }
+        .entry {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Popup Log</h1>
+    <div class="log">
+        {% for entry in log_content %}
+            <div class="entry">{{ entry }}</div>
+        {% endfor %}
+    </div>
+</body>
+</html>
