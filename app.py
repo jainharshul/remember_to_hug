@@ -72,7 +72,7 @@ def index():
 
 def run_app():
     # Run Flask app without reloader
-    app.run(debug=True, use_reloader=False, port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
 
 def run_popup_loop():
     while True:
